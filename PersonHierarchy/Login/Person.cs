@@ -133,7 +133,7 @@ namespace PersonHierarchy
         /// <param name="username"></param>
         /// <param name="firstname"></param>
         /// <param name="lastnames"></param>
-        public Person (string password, string username, string firstname, string lastnames) : base(password, username)
+        public Person (string password, string username, string firstname, string lastnames, string ssn) : base(password, username)
         {
             Firstname = firstname;
             Lastnames = lastnames;
