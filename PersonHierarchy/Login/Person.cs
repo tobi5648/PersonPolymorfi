@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PersonHierarchy
 {
+    /// <summary>
+    /// The Person class
+    /// </summary>
     public class Person : User
     {
         //  Here's the fields of the class
