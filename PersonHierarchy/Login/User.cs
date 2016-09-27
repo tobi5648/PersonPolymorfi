@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PersonHierarchy
 {
+    /// <summary>
+    /// The User class
+    /// </summary>
     public class User
     {
         //  Here's the fields of the class
@@ -30,7 +33,7 @@ namespace PersonHierarchy
         /// Gets the password of the user
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException">If it isn't a proper password</exception>
-        protected string Password
+        public string Password
         {
             get
             {
@@ -48,7 +51,7 @@ namespace PersonHierarchy
         /// <summary>
         /// Gets the username of the user
         /// </summary>
-        protected string Username
+        public string Username
         {
             get
             {
@@ -97,6 +100,11 @@ namespace PersonHierarchy
         //  Here's the constructors
         #region Constructors
 
+        /// <summary>
+        /// Constructor of the class User
+        /// </summary>
+        /// <param name="password"></param>
+        /// <param name="username"></param>
         public User(string password, string username)
         {
             Password = password;
