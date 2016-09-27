@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PersonHierarchy.Admini
+namespace PersonHierarchy
 {
     /// <summary>
     /// The Employee Class
@@ -22,7 +22,7 @@ namespace PersonHierarchy.Admini
         /// <summary>
         /// The christmas bonus for the employee
         /// </summary>
-        private decimal christmasBonus;
+        protected decimal christmasBonus;
 
         #endregion
 
@@ -70,7 +70,7 @@ namespace PersonHierarchy.Admini
         /// This calculates the yearly salary plus the yearly christmasbonus
         /// </summary>
         /// <returns></returns>
-        public decimal GetYearlySalary()
+        public virtual decimal GetYearlySalary()
         {
             return (baseSalary * 12) + christmasBonus;
         }
@@ -88,7 +88,7 @@ namespace PersonHierarchy.Admini
         /// <param name="firstname"></param>
         /// <param name="lastnames"></param>
         /// <param name="ssn"></param>
-        public Employee(string password, string username, string firstname, string lastnames, string ssn) : base(password, username, firstname, lastnames, ssn)
+        public Employee(string password, string username, string firstname, string lastnames, string ssn, decimal baseSalary, decimal christmasBonus) : base(password, username, firstname, lastnames, ssn)
         {
             BaseSalary = baseSalary;
             ChristmasBonus = christmasBonus;
