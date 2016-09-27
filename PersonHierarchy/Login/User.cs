@@ -42,9 +42,12 @@ namespace PersonHierarchy
 
             set
             {
-                password = value;
-                if (IsPasswordValid(out value) == false)
+                if (!IsValidPassword(value))
+                {
                     throw new ArgumentOutOfRangeException(value + Environment.NewLine + "try again");
+                }
+                else if (IsValidPassword(value))
+                    password = value;
             }
         }
 
@@ -74,18 +77,16 @@ namespace PersonHierarchy
         /// </summary>
         /// <param name="errorType"></param>
         /// <returns></returns>
-        private bool IsPasswordValid(out string errorType)
+        private static bool IsPasswordValid(string password, out string errorType)
         {
             if (string.IsNullOrWhiteSpace(password))
             {
                 errorType = "Password needs characters";
-                password = null;
                 return false;
             }
-             else if (password.Length > 8)
+             else if (password.Length < 8)
             {
-                errorType = "Password is too long";
-                password = null;
+                errorType = "Password is too short";
                 return false;
             }
             else
@@ -95,6 +96,15 @@ namespace PersonHierarchy
             }
         }
 
+        private static bool IsValidPassword(string password)
+        {
+            string error = String.Empty;
+            try
+            {
+                return IsPasswordValid(password, out error);
+            }
+            catch (ArgumentException) { throw; }
+        }
         #endregion
 
         //  Here's the constructors
@@ -107,8 +117,13 @@ namespace PersonHierarchy
         /// <param name="username"></param>
         public User(string password, string username)
         {
-            Password = password;
-            Username = username;
+            try
+            {
+                Password = password;
+                Username = username;
+            }
+            catch (ArgumentOutOfRangeException) { throw; }
+            catch (ArgumentException) { throw; }
         }
 
         #endregion
