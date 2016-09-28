@@ -11,7 +11,7 @@ namespace PersonHierarchy
     /// </summary>
     public class Person : User
     {
-        //  Here's the fields of the class
+       
         #region Fields
 
         /// <summary>
@@ -30,6 +30,7 @@ namespace PersonHierarchy
         protected string ssn;
 
         #endregion
+
         
         #region Properties
 
@@ -84,6 +85,7 @@ namespace PersonHierarchy
         }
 
         #endregion
+
         
         #region Methods
 
@@ -120,6 +122,7 @@ namespace PersonHierarchy
         }
 
         #endregion
+
         
         #region Constructors
 
