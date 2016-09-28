@@ -23,11 +23,6 @@ namespace PersonHierarchy
         /// </summary>
         protected short numberOfYearlyCourses;
 
-        /// <summary>
-        /// A list of the courses the lecturer has
-        /// </summary>
-        protected List<Course> courses;
-
         #endregion
 
         #region Properties
@@ -72,23 +67,7 @@ namespace PersonHierarchy
                     throw new ArgumentOutOfRangeException("You cant have a negative amount of courses");
             }
         }
-
-        /// <summary>
-        /// Gets or sets the amount of courses the lecturer has
-        /// </summary>
-        public List<Course> Courses
-        {
-            get
-            {
-                return courses;
-            }
-
-            set
-            {
-                courses = value;
-            }
-        }
-
+        
         #endregion
 
         #region Methods
@@ -115,7 +94,7 @@ namespace PersonHierarchy
         /// <param name="course"></param>
         public void EnrollIn(Course course)
         {
-            Courses.Add(course);
+            course.Add(this);
         }
 
         #endregion
@@ -138,6 +117,7 @@ namespace PersonHierarchy
         {
             CourseSalary = courseSalary;
             NumberOfYearlyCourses = numberOfYearlyCourses;
+            Courses = courses;
         }
 
         #endregion

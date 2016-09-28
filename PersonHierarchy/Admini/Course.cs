@@ -31,12 +31,7 @@ namespace PersonHierarchy
         /// <summary>
         /// The list of students for the class
         /// </summary>
-        protected List<Student> students;
-
-        /// <summary>
-        /// The lecturers of the class
-        /// </summary>
-        protected List<Lecturer> lecturers;
+        protected List<IAdmissable> attendents;
 
         #endregion
         
@@ -93,37 +88,60 @@ namespace PersonHierarchy
         /// <summary>
         /// Gets or sets the list of students
         /// </summary>
-        public List<Student> Students
+        public List<IAdmissable> Attendents
         {
             get
             {
-                return students;
+                return attendents;
             }
 
             set
             {
-                students.AddRange(value);
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the lecturers
-        /// </summary>
-        public List<Lecturer> Lecturers
-        {
-            get
-            {
-                return lecturers;
-            }
-
-            set
-            {
-                lecturers.AddRange(value);
+                attendents = value;
             }
         }
 
         #endregion
-        
+
+        #region Methods
+
+        /// <summary>
+        /// Adds to the course
+        /// </summary>
+        /// <param name="participant"></param>
+        /// <exception cref="ArgumentException"></exception>
+        public void Add(IAdmissable participant)
+        {
+            if(!attendents.Contains(participant))
+            {
+                if (participant is Lecturer)
+                {
+                    bool hasLecturer = false;
+                    foreach (IAdmissable person in attendents)
+                    {
+                        if (person is Lecturer)
+                        {
+                            hasLecturer = true;
+                        }
+                    }
+                    if (!hasLecturer)
+                    {
+                        attendents.Add(participant);
+                    }
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                throw new ArgumentException("Person already exists in the course");
+            }
+        }
+
+        #endregion
+
         #region Constructors
 
         /// <summary>
@@ -132,13 +150,12 @@ namespace PersonHierarchy
         /// <param name="endDate"></param>
         /// <param name="startDate"></param>
         /// <param name="title"></param>
-        public Course(DateTime endDate, DateTime startDate, string title, List<Student> students, List<Lecturer> lecturers)
+        public Course(DateTime endDate, DateTime startDate, string title, List<IAdmissable> attendents)
         {
             EndDate = endDate;
             StartDate = startDate;
             Title = title;
-            Students = students;
-            Lecturers = lecturers;
+            Attendents = attendents;
         }
 
         #endregion

@@ -23,11 +23,6 @@ namespace PersonHierarchy
         /// </summary>
         protected DateTime startDate;
 
-        /// <summary>
-        /// A list of courses the student attends
-        /// </summary>
-        private List<Course> courses;
-
         #endregion
 
         #region Properties
@@ -61,22 +56,6 @@ namespace PersonHierarchy
             set
             {
                 startDate = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the list of courses the student attends
-        /// </summary>
-        public List<Course> Courses
-        {
-            get
-            {
-                return courses;
-            }
-
-            set
-            {
-                courses = value;
             }
         }
 
@@ -130,8 +109,7 @@ namespace PersonHierarchy
         /// <param name="course"></param>
         public void EnrollIn(Course course)
         {
-
-            Courses.Add(course);
+            course.Add(this);
         }
 
         #endregion
@@ -142,6 +120,7 @@ namespace PersonHierarchy
         {
             EarnedECTS = earnedECTS;
             StartDate = startDate;
+            Courses = courses;
         }
 
         #endregion

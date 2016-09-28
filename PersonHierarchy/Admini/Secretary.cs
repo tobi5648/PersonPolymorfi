@@ -9,61 +9,16 @@ namespace PersonHierarchy
     public class Secretary : AdministrativeEmployee
     {
 
-        #region Fields
-
-        /// <summary>
-        /// A list of students
-        /// </summary>
-        protected Student student;
-
-        /// <summary>
-        /// A list of courses
-        /// </summary>
-        protected Course courses;
-
-        #endregion
-
-        #region Properties
-
-        /// <summary>
-        /// Gets or sets the list of students
-        /// </summary>
-        public Student Student
-        {
-            get
-            {
-                return student;
-            }
-
-            set
-            {
-                student = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets courses
-        /// </summary>
-        public Course Courses
-        {
-            get
-            {
-                return courses;
-            }
-
-            set
-            {
-                courses = value;
-            }
-        }
-
-        #endregion
-
         #region Methods
 
-        public void AdmitStudentTo(Course course)
+        public void AdmitStudentTo(Course course, Student student)
         {
-            course.Students.Add(student);
+            course.Add(student);
+        }
+
+        public void AdmitLecturerTo(Course course, Lecturer lecturer)
+        {
+            course.Add(lecturer);
         }
 
         #endregion
