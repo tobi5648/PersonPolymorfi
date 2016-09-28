@@ -9,7 +9,7 @@ namespace PersonHierarchy
     /// <summary>
     /// The administrative employee
     /// </summary>
-    class AdministrativeEmployee : Employee
+    public class AdministrativeEmployee : Employee
     {
         //  Here's the fields
         #region Fields

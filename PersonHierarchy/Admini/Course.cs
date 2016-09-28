@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PersonHierarchy.Admini
+namespace PersonHierarchy
 {
     /// <summary>
     /// The Course class
     /// </summary>
-    class Course
+    public class Course
     {
         //  The fields
         #region Fields
