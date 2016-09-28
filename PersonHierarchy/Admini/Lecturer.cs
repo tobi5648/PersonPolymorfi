@@ -9,7 +9,7 @@ namespace PersonHierarchy
     /// <summary>
     /// The lecturer class
     /// </summary>
-    public class Lecturer : Employee
+    public class Lecturer : Employee, IAdmissable
     {
         #region Fields
 
@@ -22,6 +22,11 @@ namespace PersonHierarchy
         /// The number of courses over the year
         /// </summary>
         protected short numberOfYearlyCourses;
+
+        /// <summary>
+        /// A list of the courses the lecturer has
+        /// </summary>
+        protected List<Course> courses;
 
         #endregion
 
@@ -68,6 +73,22 @@ namespace PersonHierarchy
             }
         }
 
+        /// <summary>
+        /// Gets or sets the amount of courses the lecturer has
+        /// </summary>
+        public List<Course> Courses
+        {
+            get
+            {
+                return courses;
+            }
+
+            set
+            {
+                courses = value;
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -86,6 +107,15 @@ namespace PersonHierarchy
             }
 
             return newPay + base.GetYearlySalary();
+        }
+
+        /// <summary>
+        /// Enrolls the lecturer to a course
+        /// </summary>
+        /// <param name="course"></param>
+        public void EnrollIn(Course course)
+        {
+            Courses.Add(course);
         }
 
         #endregion
