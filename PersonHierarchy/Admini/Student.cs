@@ -9,7 +9,7 @@ namespace PersonHierarchy
     /// <summary>
     /// The Student class
     /// </summary>
-    public class Student : Person
+    public class Student : Person, IAdmissable
     {
         //  Here's the fields
         #region Fields
@@ -103,6 +103,11 @@ namespace PersonHierarchy
         public TimeSpan StudyTimeSoFar()
         {
             return DateTime.Today - startDate;
+        }
+
+        public void EnrollIn(Course course)
+        {
+            
         }
 
         #endregion

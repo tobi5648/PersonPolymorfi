@@ -29,6 +29,16 @@ namespace PersonHierarchy
         /// </summary>
         protected string title;
 
+        /// <summary>
+        /// The list of students for the class
+        /// </summary>
+        protected List<Student> students;
+
+        /// <summary>
+        /// The lecturers of the class
+        /// </summary>
+        private List<Lecturer> lecturers;
+
         #endregion
 
         //  The properties of the fields
@@ -82,6 +92,38 @@ namespace PersonHierarchy
             }
         }
 
+        /// <summary>
+        /// Gets or sets the list of students
+        /// </summary>
+        public List<Student> Students
+        {
+            get
+            {
+                return students;
+            }
+
+            set
+            {
+                students.AddRange(value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the lecturers
+        /// </summary>
+        public List<Lecturer> Lecturers
+        {
+            get
+            {
+                return lecturers;
+            }
+
+            set
+            {
+                lecturers.AddRange(value);
+            }
+        }
+
         #endregion
 
         //  The constructors
@@ -93,11 +135,13 @@ namespace PersonHierarchy
         /// <param name="endDate"></param>
         /// <param name="startDate"></param>
         /// <param name="title"></param>
-        public Course(DateTime endDate, DateTime startDate, string title)
+        public Course(DateTime endDate, DateTime startDate, string title, List<Student> students, List<Lecturer> lecturers)
         {
             EndDate = endDate;
             StartDate = startDate;
             Title = title;
+            Students = students;
+            Lecturers = lecturers;
         }
 
         #endregion

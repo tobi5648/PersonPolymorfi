@@ -30,8 +30,7 @@ namespace PersonHierarchy
         protected string ssn;
 
         #endregion
-
-        //  Here's the properties of the fields of the class
+        
         #region Properties
 
         /// <summary>
@@ -85,8 +84,7 @@ namespace PersonHierarchy
         }
 
         #endregion
-
-        //  Here's the methods
+        
         #region Methods
 
         /// <summary>
@@ -122,8 +120,7 @@ namespace PersonHierarchy
         }
 
         #endregion
-
-        //  Here's the constructors
+        
         #region Constructors
 
         /// <summary>

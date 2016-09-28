@@ -43,6 +43,7 @@
     <Compile Include="Admini\AdministrativeEmployee.cs" />
     <Compile Include="Admini\Course.cs" />
     <Compile Include="Admini\Employee.cs" />
+    <Compile Include="Admini\Lecturer.cs" />
     <Compile Include="Admini\Student.cs" />
     <Compile Include="Interfaces\IAdmissable.cs" />
     <Compile Include="Login\Person.cs" />
