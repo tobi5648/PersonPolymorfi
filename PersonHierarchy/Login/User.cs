@@ -11,7 +11,6 @@ namespace PersonHierarchy
     /// </summary>
     public class User
     {
-        //  Here's the fields of the class
         #region Fields
 
         /// <summary>
@@ -25,8 +24,7 @@ namespace PersonHierarchy
         protected string username;
 
         #endregion
-
-        //  Here's the properties of the class
+        
         #region Properties
 
         /// <summary>
@@ -68,8 +66,7 @@ namespace PersonHierarchy
         }
 
         #endregion
-
-        //  Here's the methods
+        
         #region Methods
 
         /// <summary>
@@ -106,8 +103,7 @@ namespace PersonHierarchy
             catch (ArgumentException) { throw; }
         }
         #endregion
-
-        //  Here's the constructors
+        
         #region Constructors
 
         /// <summary>

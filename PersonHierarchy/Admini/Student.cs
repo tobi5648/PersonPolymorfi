@@ -11,7 +11,6 @@ namespace PersonHierarchy
     /// </summary>
     public class Student : Person, IAdmissable
     {
-        //  Here's the fields
         #region Fields
 
         /// <summary>
@@ -25,8 +24,7 @@ namespace PersonHierarchy
         protected DateTime startDate;
 
         #endregion
-
-        //  Here's the properties of the fields
+        
         #region Properties
 
         /// <summary>

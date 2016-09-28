@@ -11,7 +11,6 @@ namespace PersonHierarchy
     /// </summary>
     public class AdministrativeEmployee : Employee
     {
-        //  Here's the fields
         #region Fields
 
         /// <summary>
@@ -25,8 +24,7 @@ namespace PersonHierarchy
         protected double yearlyRisePercent;
 
         #endregion
-
-        //  Here's the properties of the fields
+        
         #region Properties
 
         /// <summary>
@@ -70,8 +68,7 @@ namespace PersonHierarchy
         }
 
         #endregion
-
-        //  Here's the methods
+        
         #region Methods
 
         /// <summary>
@@ -91,8 +88,7 @@ namespace PersonHierarchy
         }
 
         #endregion
-
-        //  Here's the Constructors
+        
         #region Constructors
 
         /// <summary>

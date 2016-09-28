@@ -11,7 +11,6 @@ namespace PersonHierarchy
     /// </summary>
     public class Course
     {
-        //  The fields
         #region Fields
 
         /// <summary>
@@ -37,11 +36,10 @@ namespace PersonHierarchy
         /// <summary>
         /// The lecturers of the class
         /// </summary>
-        private List<Lecturer> lecturers;
+        protected List<Lecturer> lecturers;
 
         #endregion
-
-        //  The properties of the fields
+        
         #region Properties
 
         /// <summary>
@@ -125,8 +123,7 @@ namespace PersonHierarchy
         }
 
         #endregion
-
-        //  The constructors
+        
         #region Constructors
 
         /// <summary>

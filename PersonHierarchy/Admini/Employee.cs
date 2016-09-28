@@ -11,7 +11,6 @@ namespace PersonHierarchy
     /// </summary>
     public class Employee : Person
     {
-        //  The fields
         #region Fields
 
         /// <summary>
@@ -25,8 +24,7 @@ namespace PersonHierarchy
         protected decimal christmasBonus;
 
         #endregion
-
-        //  The properties of the fields
+        
         #region Properties
 
         /// <summary>
@@ -62,8 +60,7 @@ namespace PersonHierarchy
         }
 
         #endregion
-
-        //  Here's the methods
+        
         #region Methods
         
         /// <summary>
@@ -76,8 +73,7 @@ namespace PersonHierarchy
         }
 
         #endregion
-
-        //  Here's the constructors
+        
         #region Constructors
 
         /// <summary>

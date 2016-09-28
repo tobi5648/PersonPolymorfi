@@ -9,7 +9,7 @@ namespace PersonHierarchy
     /// <summary>
     /// The lecturer class
     /// </summary>
-    class Lecturer
+    public class Lecturer
     {
         #region Fields
 
