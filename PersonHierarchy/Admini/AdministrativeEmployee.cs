@@ -32,6 +32,7 @@ namespace PersonHierarchy
         /// <summary>
         /// Gets or sets the paylevel of the employee
         /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public byte PayLevel
         {
             get
@@ -41,13 +42,17 @@ namespace PersonHierarchy
 
             set
             {
-                payLevel = value;
+                if (value <= 8)
+                    payLevel = value;
+                else if (value > 8)
+                    throw new ArgumentOutOfRangeException("Paylevel can't get higher than 8");
             }
         }
 
         /// <summary>
         /// Gets or sets the yearly rise percentage of the employee
         /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public double YearlyRisePercent
         {
             get
@@ -57,17 +62,32 @@ namespace PersonHierarchy
 
             set
             {
-                yearlyRisePercent = value;
+                if (value > 0)
+                    yearlyRisePercent = value;
+                else if (value < 0)
+                    throw new ArgumentOutOfRangeException("A raise can't be negative");
             }
         }
 
         #endregion
 
+        //  Here's the methods
         #region Methods
 
+        /// <summary>
+        /// A method to get the yearly salary with the yearly rise
+        /// </summary>
+        /// <returns></returns>
         public override decimal GetYearlySalary()
         {
-            
+            decimal newPay = 0;
+
+            for (int i = 1;  i <= payLevel; i++)
+            {
+                newPay += base.GetYearlySalary() * (decimal)yearlyRisePercent;
+            }
+
+            return newPay;
         }
 
         #endregion
