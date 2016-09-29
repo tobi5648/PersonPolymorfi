@@ -103,25 +103,42 @@ namespace PersonHierarchy
 
         #endregion
 
-        #region Events
+        #region Event Delegates
         //  https://msdn.microsoft.com/en-us/library/aa645739(VS.71).aspx
 
-
-        // A delegate type for hooking up change notifications.
+            
+        /// <summary>
+        ///  A delegate type for hooking up change notifications.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public delegate void ChangedEventHandler(object sender, EventArgs e);
 
-        // An event that clients can use to be notified whenever the
-        // elements of the list change.
-        public event ChangedEventHandler Changed;
-
-        // Invoke the Changed event; called whenever list changes
-        protected virtual void OnChanged(EventArgs e)
-        {
-            Changed?.Invoke(this, e);
-        }
+        /// <summary>
+        ///  A delegate type for hooking up nonchange notifications.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public delegate void NotChangedEventHandler(object sender, EventArgs e);
 
         #endregion
 
+        #region Events
+
+        /// <summary>
+        /// An event that clients can use to be notified whenever the
+        /// elements of the list change.
+        /// </summary>
+        public event ChangedEventHandler Changed;
+
+        /// <summary>
+        /// An event that clients can use to be notified whenever the
+        /// elements of the list is not changed.
+        /// </summary>
+        public event NotChangedEventHandler NotChanged;
+
+        #endregion
+        
         #region Methods
 
         /// <summary>
@@ -156,9 +173,27 @@ namespace PersonHierarchy
             }
             else
             {
-                OnChanged(EventArgs.Empty);
+                OnNotChanged(EventArgs.Empty);
                 //throw new ArgumentException("Person already exists in the course");
             }
+        }
+
+        /// <summary>
+        /// Invoke the Changed event; called whenever list changes
+        /// </summary>
+        /// <param name="e"></param>
+        protected virtual void OnChanged(EventArgs e)
+        {
+            Changed?.Invoke(this, e);
+        }
+
+        /// <summary>
+        /// Invoke the NotChanged event; called whenever list doesn't change
+        /// </summary>
+        /// <param name="e"></param>
+        protected virtual void OnNotChanged(EventArgs e)
+        {
+            NotChanged?.Invoke(this, e);
         }
 
         #endregion
