@@ -117,7 +117,6 @@ namespace PersonHierarchy
         {
             CourseSalary = courseSalary;
             NumberOfYearlyCourses = numberOfYearlyCourses;
-            Courses = courses;
         }
 
         #endregion

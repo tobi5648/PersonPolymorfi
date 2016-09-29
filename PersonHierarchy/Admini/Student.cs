@@ -116,11 +116,10 @@ namespace PersonHierarchy
 
         #region Constructors
 
-        public Student(string password, string username, string firstname, string lastnames, string ssn) : base(password, username, firstname, lastnames, ssn)
+        public Student(string password, string username, string firstname, string lastnames, string ssn, short earnedECTS, DateTime startDate) : base(password, username, firstname, lastnames, ssn)
         {
             EarnedECTS = earnedECTS;
             StartDate = startDate;
-            Courses = courses;
         }
 
         #endregion
