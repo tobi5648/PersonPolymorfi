@@ -103,6 +103,25 @@ namespace PersonHierarchy
 
         #endregion
 
+        #region Events
+        //  https://msdn.microsoft.com/en-us/library/aa645739(VS.71).aspx
+
+
+        // A delegate type for hooking up change notifications.
+        public delegate void ChangedEventHandler(object sender, EventArgs e);
+
+        // An event that clients can use to be notified whenever the
+        // elements of the list change.
+        public event ChangedEventHandler Changed;
+
+        // Invoke the Changed event; called whenever list changes
+        protected virtual void OnChanged(EventArgs e)
+        {
+            Changed?.Invoke(this, e);
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>
@@ -126,6 +145,7 @@ namespace PersonHierarchy
                     }
                     if (!hasLecturer)
                     {
+                        OnChanged(EventArgs.Empty);
                         attendents.Add(participant);
                     }
                 }
@@ -136,8 +156,8 @@ namespace PersonHierarchy
             }
             else
             {
-                
-                throw new ArgumentException("Person already exists in the course");
+                OnChanged(EventArgs.Empty);
+                //throw new ArgumentException("Person already exists in the course");
             }
         }
 
