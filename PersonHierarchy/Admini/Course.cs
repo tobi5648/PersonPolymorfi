@@ -1,11 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PersonHierarchy
+﻿namespace PersonHierarchy
 {
+
+    #region Using
+
+    using System;
+    using System.Collections.Generic;
+
+    #endregion
+
+    #region Class
+
     /// <summary>
     /// The Course class
     /// </summary>
@@ -34,7 +38,7 @@ namespace PersonHierarchy
         protected List<IAdmissable> attendents;
 
         #endregion
-        
+
         #region Properties
 
         /// <summary>
@@ -103,42 +107,25 @@ namespace PersonHierarchy
 
         #endregion
 
-        #region Event Delegates
+        #region Events
         //  https://msdn.microsoft.com/en-us/library/aa645739(VS.71).aspx
 
-            
-        /// <summary>
-        ///  A delegate type for hooking up change notifications.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public delegate void ChangedEventHandler(object sender, EventArgs e);
 
-        /// <summary>
-        ///  A delegate type for hooking up nonchange notifications.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public delegate void NotChangedEventHandler(object sender, EventArgs e);
+        // A delegate type for hooking up change notifications.
+        public delegate void ChangedEventHandler(object sender, string e);
 
-        #endregion
-
-        #region Events
-
-        /// <summary>
-        /// An event that clients can use to be notified whenever the
-        /// elements of the list change.
-        /// </summary>
+        // An event that clients can use to be notified whenever the
+        // elements of the list change.
         public event ChangedEventHandler Changed;
 
-        /// <summary>
-        /// An event that clients can use to be notified whenever the
-        /// elements of the list is not changed.
-        /// </summary>
-        public event NotChangedEventHandler NotChanged;
+        // Invoke the Changed event; called whenever list changes
+        protected virtual void OnChanged(string e)
+        {
+            Changed?.Invoke(this, e);
+        }
 
         #endregion
-        
+
         #region Methods
 
         /// <summary>
@@ -148,7 +135,7 @@ namespace PersonHierarchy
         /// <exception cref="ArgumentException"></exception>
         public void Add(IAdmissable participant)
         {
-            if(!attendents.Contains(participant))
+            if (!attendents.Contains(participant) && attendents.Count <= 30)
             {
                 if (participant is Lecturer)
                 {
@@ -162,38 +149,20 @@ namespace PersonHierarchy
                     }
                     if (!hasLecturer)
                     {
-                        OnChanged(EventArgs.Empty);
+                        OnChanged("Lecturer has been added");
                         attendents.Add(participant);
                     }
+                    else if (hasLecturer)
+                    {
+                        OnChanged("There's already a lecturer");
+                    }
                 }
-                else
+                else if (participant is Student)
                 {
-
+                    OnChanged("Too many students already");
+                    attendents.Add(participant);
                 }
             }
-            else
-            {
-                OnNotChanged(EventArgs.Empty);
-                //throw new ArgumentException("Person already exists in the course");
-            }
-        }
-
-        /// <summary>
-        /// Invoke the Changed event; called whenever list changes
-        /// </summary>
-        /// <param name="e"></param>
-        protected virtual void OnChanged(EventArgs e)
-        {
-            Changed?.Invoke(this, e);
-        }
-
-        /// <summary>
-        /// Invoke the NotChanged event; called whenever list doesn't change
-        /// </summary>
-        /// <param name="e"></param>
-        protected virtual void OnNotChanged(EventArgs e)
-        {
-            NotChanged?.Invoke(this, e);
         }
 
         #endregion
@@ -216,4 +185,6 @@ namespace PersonHierarchy
 
         #endregion
     }
+
+    #endregion
 }
