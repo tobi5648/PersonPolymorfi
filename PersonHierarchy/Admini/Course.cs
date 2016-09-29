@@ -141,7 +141,7 @@ namespace PersonHierarchy
                         if (person is Lecturer)
                         {
                             hasLecturer = true;
-                        }bn
+                        }
                     }
                     if (!hasLecturer)
                     {
