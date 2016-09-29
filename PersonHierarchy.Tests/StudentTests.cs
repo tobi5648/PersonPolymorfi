@@ -1,11 +1,19 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace PersonHierarchy.Tests
+﻿namespace PersonHierarchy.Tests
 {
+    #region Using
+
+    using System;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    #endregion
+
+    #region TestClass
+
     [TestClass]
     public class StudentTests
     {
+        #region Constructor
+
         [TestMethod]
         public void ConstructorStudent()
         {
@@ -30,5 +38,9 @@ namespace PersonHierarchy.Tests
             Assert.AreEqual(expectedEarnedECTS, student.EarnedECTS);
             Assert.AreEqual(expectedStartDate, student.StartDate);
         }
+
+        #endregion
     }
+
+    #endregion
 }

@@ -1,16 +1,21 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace PersonHierarchy.Tests
+﻿namespace PersonHierarchy.Tests
 {
+    #region Using
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    #endregion
+
+    #region TestClass
+
     /// <summary>
     /// Tests the class Person
     /// </summary>
     [TestClass]
     public class PersonTests
     {
+        #region Constructor
+
         /// <summary>
         /// A test on the constructor
         /// </summary>
@@ -34,5 +39,9 @@ namespace PersonHierarchy.Tests
             Assert.AreEqual(expectedLastnames, person.Lastnames);
             Assert.AreEqual(expectedSsn, person.Ssn);
         }
+
+        #endregion
     }
+
+    #endregion
 }

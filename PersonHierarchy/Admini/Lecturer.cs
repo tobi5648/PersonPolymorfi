@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PersonHierarchy
+﻿namespace PersonHierarchy
 {
+    #region Using
+
+    using System;
+
+    #endregion
+
+    #region Class
+
     /// <summary>
     /// The lecturer class
     /// </summary>
@@ -121,4 +123,6 @@ namespace PersonHierarchy
 
         #endregion
     }
+
+    #endregion
 }

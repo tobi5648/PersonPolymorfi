@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PersonHierarchy
+﻿namespace PersonHierarchy
 {
+    #region Using
+    using System;
+    #endregion
+    
+    #region Class
+
     /// <summary>
     /// The administrative employee
     /// </summary>
@@ -24,7 +24,7 @@ namespace PersonHierarchy
         protected double yearlyRisePercent;
 
         #endregion
-        
+
         #region Properties
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace PersonHierarchy
         }
 
         #endregion
-        
+
         #region Methods
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace PersonHierarchy
         {
             decimal newPay = 0;
 
-            for (int i = 1;  i <= payLevel; i++)
+            for (int i = 1; i <= payLevel; i++)
             {
                 newPay += base.GetYearlySalary() * (decimal)yearlyRisePercent;
             }
@@ -88,7 +88,7 @@ namespace PersonHierarchy
         }
 
         #endregion
-        
+
         #region Constructors
 
         /// <summary>
@@ -110,5 +110,7 @@ namespace PersonHierarchy
         }
 
         #endregion
-    }
+    } 
+
+    #endregion
 }

@@ -1,24 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PersonHierarchy
+﻿namespace PersonHierarchy
 {
+    #region Using
+
+    using System;
+
+    #endregion
+
+    #region Class
+
     public class Secretary : AdministrativeEmployee
     {
-
         #region Methods
 
+        /// <summary>
+        /// Admits a student to a course
+        /// </summary>
+        /// <param name="course"></param>
+        /// <param name="student"></param>
         public void AdmitStudentTo(Course course, Student student)
         {
-            course.Add(student);
+            try
+            {
+                course.Add(student);
+            }
+            catch
+            {
+                throw new ArgumentException();
+            }
         }
 
+        /// <summary>
+        /// Admits a lecturer to the course
+        /// </summary>
+        /// <param name="course"></param>
+        /// <param name="lecturer"></param>
         public void AdmitLecturerTo(Course course, Lecturer lecturer)
         {
-            course.Add(lecturer);
+            try
+            {
+                course.Add(lecturer);
+            }
+            catch
+            {
+                throw new ArgumentException();
+            }
         }
 
         #endregion
@@ -43,4 +68,6 @@ namespace PersonHierarchy
         }
         #endregion
     }
+
+    #endregion
 }

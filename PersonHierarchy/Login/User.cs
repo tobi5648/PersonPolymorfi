@@ -1,7 +1,13 @@
-﻿using System;
-
-namespace PersonHierarchy
+﻿namespace PersonHierarchy
 {
+    #region Using
+
+    using System;
+
+    #endregion
+
+    #region Class
+
     /// <summary>
     /// The User class
     /// </summary>
@@ -120,4 +126,6 @@ namespace PersonHierarchy
 
         #endregion
     }
+
+    #endregion
 }

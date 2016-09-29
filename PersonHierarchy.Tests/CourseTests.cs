@@ -1,15 +1,23 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-
-namespace PersonHierarchy.Tests
+﻿namespace PersonHierarchy.Tests
 {
+    #region Using
+
+    using System;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System.Collections.Generic;
+
+    #endregion
+
+    #region TestClass
+
     /// <summary>
     /// Tests for the class Course
     /// </summary>
     [TestClass]
     public class CourseTests
     {
+        #region Constructors
+
         /// <summary>
         /// Tests the constructor
         /// </summary>
@@ -21,7 +29,7 @@ namespace PersonHierarchy.Tests
             DateTime expectedStartDate = new DateTime(2016, 9, 25);
             string extectedTitle = "S3";
             List<IAdmissable> expectedAttendents = new List<IAdmissable>();
-            
+
             //  Act
 
 
@@ -29,5 +37,9 @@ namespace PersonHierarchy.Tests
 
             //  Assert
         }
+
+        #endregion
     }
+
+    #endregion
 }

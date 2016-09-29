@@ -1,11 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PersonHierarchy
+﻿namespace PersonHierarchy
 {
+
+    #region Using
+
+    using System;
+    using System.Collections.Generic;
+
+    #endregion
+
+    #region Class
+
     /// <summary>
     /// The Course class
     /// </summary>
@@ -34,7 +38,7 @@ namespace PersonHierarchy
         protected List<IAdmissable> attendents;
 
         #endregion
-        
+
         #region Properties
 
         /// <summary>
@@ -131,7 +135,7 @@ namespace PersonHierarchy
         /// <exception cref="ArgumentException"></exception>
         public void Add(IAdmissable participant)
         {
-            if(!attendents.Contains(participant))
+            if (!attendents.Contains(participant))
             {
                 if (participant is Lecturer)
                 {
@@ -181,4 +185,6 @@ namespace PersonHierarchy
 
         #endregion
     }
+
+    #endregion
 }
