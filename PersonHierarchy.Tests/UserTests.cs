@@ -1,7 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace PersonHierarchy.Tests
+﻿namespace PersonHierarchy.Tests
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     /// <summary>
     /// Tests for the class User
     /// </summary>

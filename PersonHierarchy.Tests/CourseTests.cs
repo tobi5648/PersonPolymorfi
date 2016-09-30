@@ -1,9 +1,9 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-
-namespace PersonHierarchy.Tests
+﻿namespace PersonHierarchy.Tests
 {
+    using System;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System.Collections.Generic;
+
     /// <summary>
     /// Tests for the class Course
     /// </summary>
@@ -19,15 +19,18 @@ namespace PersonHierarchy.Tests
             //  Arrange
             DateTime expectedEndDate = new DateTime(2016, 9, 20);
             DateTime expectedStartDate = new DateTime(2016, 9, 25);
-            string extectedTitle = "S3";
+            string expectedTitle = "S3";
             List<IAdmissable> expectedAttendents = new List<IAdmissable>();
             
             //  Act
-
-
-            Course course = new Course(expectedEndDate, expectedStartDate, extectedTitle, expectedAttendents);
+            
+            Course course = new Course(expectedEndDate, expectedStartDate, expectedTitle, expectedAttendents);
 
             //  Assert
+            Assert.AreEqual(expectedEndDate, course.EndDate);
+            Assert.AreEqual(expectedStartDate, course.StartDate);
+            Assert.AreEqual(expectedTitle, course.Title);
+            Assert.AreEqual(expectedAttendents, course.Attendents);
         }
     }
 }
